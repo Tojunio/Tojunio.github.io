@@ -71,6 +71,31 @@
       text-decoration: underline;
     }
 
+    .materiais {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .material {
+      padding: 20px;
+      border: 1px solid #dfe7e3;
+      border-radius: 12px;
+      background: #f8fbf9;
+    }
+
+    .material strong {
+      display: block;
+      color: #17324d;
+      margin-bottom: 6px;
+    }
+
+    .material span {
+      color: #66727c;
+      font-size: 0.95rem;
+    }
+
     .rodape {
       margin-top: 40px;
       font-size: 0.9rem;
@@ -84,6 +109,10 @@
 
       h1 {
         font-size: 1.7rem;
+      }
+
+      .materiais {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -125,12 +154,19 @@
         de indicadores adequados à realidade municipal.
       </p>
 
-      <h2>Disponibilização</h2>
+      <h2>Materiais</h2>
 
-      <p>
-        O trabalho completo e os materiais da apresentação serão disponibilizados
-        nesta página oportunamente.
-      </p>
+      <div class="materiais">
+        <div class="material">
+          <strong>Artigo completo</strong>
+          <span>Será disponibilizado oportunamente, após a publicação oficial do trabalho.</span>
+        </div>
+
+        <div class="material">
+          <strong>Apresentação</strong>
+          <span>Os slides serão disponibilizados após a apresentação no evento.</span>
+        </div>
+      </div>
 
       <h2>Contato</h2>
 
