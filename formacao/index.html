@@ -28,6 +28,12 @@
     .meta{font-size:.9rem;color:#66727c;line-height:1.45}
     .tag{display:inline-block;margin-top:10px;padding:5px 9px;border-radius:999px;background:#eef6f1;color:#25634b;font-size:.78rem;font-weight:700}
     .tag.role{background:#eef2f8;color:#34506c}
+    .tag.academic{background:#17324d;color:#fff}
+    .academic-card{background:linear-gradient(180deg,#ffffff 0%,#f8fbf9 100%);border:1px solid #d8e4de}
+    .academic-card h3{font-size:1.06rem}
+    .academic-card details{margin-top:12px;border-top:1px solid #e3e9e6;padding-top:10px}
+    .academic-card summary{cursor:pointer;color:#25634b;font-weight:750}
+    .academic-card details p{font-size:.88rem;color:#5e6972;margin:8px 0 0}
     .back{display:inline-block;margin-top:24px;color:#25634b;font-weight:750;text-decoration:none}
     .footer{margin-top:28px;color:#78838c;font-size:.9rem;text-align:center}
     @media(max-width:760px){.toolbar{grid-template-columns:1fr}.stats{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.top{padding:26px}}
@@ -41,12 +47,13 @@
     <p class="sub">Cursos, capacitações, eventos, atividades de extensão e registros institucionais selecionados. O catálogo está em construção e recebe novos registros à medida que os documentos são revisados.</p>
   </header>
 
-  <div class="notice"><strong>Privacidade:</strong> esta página apresenta apenas informações acadêmicas e profissionais de cada registro. Os arquivos originais dos certificados, inclusive aqueles com CPF, matrícula ou outros dados pessoais, não foram publicados nesta etapa.</div>
+  <div class="notice"><strong>Privacidade:</strong> diplomas e certificados são apresentados em versão pública, com dados pessoais desnecessários à divulgação (como CPF, RG, data de nascimento e códigos privados) mantidos fora da página. Os originais permanecem preservados.</div>
 
   <div class="toolbar">
     <input id="busca" type="search" placeholder="Buscar por curso, instituição ou tema..." oninput="filtrar()">
     <select id="categoria" onchange="filtrar()">
       <option value="">Todas as categorias</option>
+      <option>Formação Acadêmica</option>
       <option>Administração Pública e Governança</option>
       <option>Pesquisa e Metodologia</option>
       <option>Gestão, RH, Carreira e Operações</option>
@@ -59,10 +66,53 @@
   </div>
 
   <div class="stats">
-    <div class="stat"><strong>44</strong><span>registros catalogados nesta versão</span></div>
+    <div class="stat"><strong id="totalRegistros">–</strong><span>registros publicados no catálogo</span></div>
     <div class="stat"><strong>2018–2026</strong><span>período atualmente representado</span></div>
     <div class="stat"><strong>Em construção</strong><span>novos documentos serão incorporados após triagem</span></div>
   </div>
+
+
+  <section class="section" data-cat="Formação Acadêmica">
+    <h2>Formação Acadêmica</h2>
+    <div class="cards">
+      <article class="card item academic-card">
+        <h3>Tecnólogo em Gestão de Recursos Humanos</h3>
+        <div class="meta">Universidade de Uberaba (UNIUBE) • Conclusão em 2025</div>
+        <span class="tag academic">Graduação tecnológica</span>
+        <details><summary>Detalhes do documento</summary><p>Curso concluído em 20/07/2025, com colação de grau em 23/08/2025. Diploma expedido pela Universidade de Uberaba.</p></details>
+      </article>
+      <article class="card item academic-card">
+        <h3>MBA em Sustentabilidade</h3>
+        <div class="meta">Faculdade Iguaçu • 700 h/a • 2026</div>
+        <span class="tag academic">Pós-graduação lato sensu</span>
+        <details><summary>Detalhes do curso</summary><p>Integralizado entre 25/08/2025 e 14/02/2026. Área: Negócios, Administração e Direito.</p></details>
+      </article>
+      <article class="card item academic-card">
+        <h3>MBA em Administração de Recursos Humanos</h3>
+        <div class="meta">Faculdade Iguaçu • 660 h/a • 2026</div>
+        <span class="tag academic">Pós-graduação lato sensu</span>
+        <details><summary>Detalhes do curso</summary><p>Integralizado entre 25/08/2025 e 11/01/2026. Área: Negócios, Administração e Direito.</p></details>
+      </article>
+      <article class="card item academic-card">
+        <h3>MBA em Gestão de Qualidade</h3>
+        <div class="meta">Faculdade Iguaçu • 500 h/a • 2026</div>
+        <span class="tag academic">Pós-graduação lato sensu</span>
+        <details><summary>Detalhes do curso</summary><p>Integralizado entre 25/08/2025 e 11/01/2026. Área: Negócios, Administração e Direito.</p></details>
+      </article>
+      <article class="card item academic-card">
+        <h3>MBA Executivo em Gestão Tributária</h3>
+        <div class="meta">Faculdade Iguaçu • 700 h/a • 2026</div>
+        <span class="tag academic">Pós-graduação lato sensu</span>
+        <details><summary>Detalhes do curso</summary><p>Integralizado entre 10/11/2025 e 11/03/2026. Área: Negócios, Administração e Direito.</p></details>
+      </article>
+      <article class="card item academic-card">
+        <h3>Perícia Grafotécnica</h3>
+        <div class="meta">Faculdade Iguaçu • 560 h/a • 2026</div>
+        <span class="tag academic">Pós-graduação lato sensu</span>
+        <details><summary>Detalhes do curso</summary><p>Integralizado entre 01/08/2025 e 05/01/2026. Área: Negócios, Administração e Direito.</p></details>
+      </article>
+    </div>
+  </section>
 
   <section class="section" data-cat="Administração Pública e Governança"><h2>Administração Pública e Governança</h2><div class="cards">
     <article class="card item"><h3>Inovação no Setor Público — Comemoração do Dia do Administrador</h3><div class="meta">UFV Campus Rio Paranaíba • 2026 • 4h</div><span class="tag">Catalogado</span></article>
@@ -77,6 +127,8 @@
     <article class="card item"><h3>Desvendando o processo de submissão do projeto de pesquisa no Comitê de Ética</h3><div class="meta">UFV Campus Rio Paranaíba • 2026 • 3h</div><span class="tag">Catalogado</span></article>
     <article class="card item"><h3>SPEED Stat: um programa em Excel para simplificar a estatística experimental</h3><div class="meta">Simpósio de Integração Acadêmica / UFV • 2020 • 4h</div><span class="tag">Catalogado</span></article>
     <article class="card item"><h3>I Café Científico da LAFIC — Ciência, tecnologia e inovação no Brasil</h3><div class="meta">Liga Acadêmica de Filosofia da Ciência / UFG • 2021 • 6h</div><span class="tag">Novo</span></article>
+    <article class="card item"><h3>Webinar Mendeley para a UFV</h3><div class="meta">Elsevier Researcher Academy / UFV • 2020 • 1h</div><span class="tag">Pesquisa e ferramentas acadêmicas</span></article>
+    <article class="card item"><h3>Webinar Scopus para a UFV</h3><div class="meta">Elsevier Researcher Academy / UFV • 2020 • 1h30</div><span class="tag">Pesquisa e bases científicas</span></article>
   </div></section>
 
   <section class="section" data-cat="Gestão, RH, Carreira e Operações"><h2>Gestão, RH, Carreira e Operações</h2><div class="cards">
@@ -85,6 +137,8 @@
     <article class="card item"><h3>Visita Técnica à UNICRED — Gestão Estratégica de Pessoas</h3><div class="meta">UFV • 2019 • 4h</div><span class="tag">Catalogado</span></article>
     <article class="card item"><h3>Empreendedorismo</h3><div class="meta">FIEMS / SENAI • 2018 • 14h</div><span class="tag">Catalogado</span></article>
     <article class="card item"><h3>Fundamentos de Logística</h3><div class="meta">FIEMS / SENAI • 2018 • 14h</div><span class="tag">Novo</span></article>
+    <article class="card item"><h3>Perícia Grafotécnica Prática</h3><div class="meta">Unova Cursos • 2025 • 20h • Nota 9 • Frequência 100%</div><span class="tag">Curso livre de aperfeiçoamento</span></article>
+    <article class="card item"><h3>Formação White Belt Six Sigma</h3><div class="meta">UFV • 2021 • 360 minutos (6h)</div><span class="tag">Qualidade e melhoria de processos</span></article>
   </div></section>
 
   <section class="section" data-cat="Inovação, Tecnologia e Educação Digital"><h2>Inovação, Tecnologia e Educação Digital</h2><div class="cards">
@@ -137,6 +191,7 @@
 </div>
 
 <script>
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('totalRegistros').textContent=document.querySelectorAll('.item').length;});
 function filtrar(){
   const q=document.getElementById('busca').value.toLowerCase().trim();
   const cat=document.getElementById('categoria').value;
