@@ -3,11 +3,120 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Vitor Alexandre Júnior</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7f8;
+      color: #1f2933;
+      line-height: 1.6;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 900px;
+      background: white;
+      border-radius: 18px;
+      padding: 55px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: 2.6rem;
+      color: #17324d;
+    }
+
+    .formacao {
+      font-size: 1.15rem;
+      color: #44515c;
+      margin-bottom: 28px;
+    }
+
+    .areas {
+      font-size: 1.05rem;
+      font-weight: bold;
+      color: #25634b;
+      margin-bottom: 35px;
+    }
+
+    .texto {
+      font-size: 1rem;
+      max-width: 760px;
+    }
+
+    .linha {
+      width: 70px;
+      height: 4px;
+      background: #25634b;
+      margin: 25px 0;
+      border-radius: 4px;
+    }
+
+    .rodape {
+      margin-top: 45px;
+      font-size: 0.9rem;
+      color: #77818a;
+    }
+
+    @media (max-width: 650px) {
+      .card {
+        padding: 32px 24px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Vitor Alexandre Júnior</h1>
-  <p>Mestrando em Administração Pública – PROFIAP/UFV</p>
-  <p>Página profissional e acadêmica em construção.</p>
+
+  <main class="hero">
+    <section class="card">
+
+      <h1>Vitor Alexandre Júnior</h1>
+
+      <div class="linha"></div>
+
+      <p class="formacao">
+        Mestrando no Programa de Mestrado Profissional em Administração Pública
+        em Rede Nacional (PROFIAP) – Universidade Federal de Viçosa (UFV),
+        Campus Rio Paranaíba.
+      </p>
+
+      <p class="areas">
+        Administração Pública • Governança • Sustentabilidade
+      </p>
+
+      <p class="texto">
+        Página profissional e acadêmica destinada à divulgação de trabalhos,
+        apresentações e produções relacionadas à Administração Pública,
+        governança e sustentabilidade.
+      </p>
+
+      <p class="rodape">
+        Página em desenvolvimento.
+      </p>
+
+    </section>
+  </main>
+
 </body>
 </html>
