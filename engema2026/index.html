@@ -96,6 +96,32 @@
       font-size: 0.95rem;
     }
 
+    .qr-area {
+      margin-top: 34px;
+      padding: 22px;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .qr-area img {
+      width: 150px;
+      height: 150px;
+      object-fit: contain;
+      flex: 0 0 auto;
+    }
+
+    .qr-texto h2 {
+      margin: 0 0 8px;
+    }
+
+    .qr-texto p {
+      margin: 4px 0;
+    }
+
     .rodape {
       margin-top: 40px;
       font-size: 0.9rem;
@@ -113,6 +139,11 @@
 
       .materiais {
         grid-template-columns: 1fr;
+      }
+
+      .qr-area {
+        flex-direction: column;
+        text-align: center;
       }
     }
   </style>
@@ -167,6 +198,15 @@
           <span>Os slides serão disponibilizados após a apresentação no evento.</span>
         </div>
       </div>
+
+      <section class="qr-area">
+        <img src="../assets/qr-engema-2026.png" alt="QR Code para a página do trabalho no XXVIII ENGEMA">
+        <div class="qr-texto">
+          <h2>Compartilhe esta página</h2>
+          <p>Escaneie o QR Code para acessar este trabalho em outro dispositivo.</p>
+          <p><strong>tojunio.github.io/engema2026/</strong></p>
+        </div>
+      </section>
 
       <h2>Contato</h2>
 
