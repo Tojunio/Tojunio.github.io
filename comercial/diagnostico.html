@@ -69,7 +69,14 @@ const qs=[
 ['treinamento','Existe rotina de treinamento ou orientação das pessoas envolvidas?'],['revisao_indicadores','Os indicadores do negócio são revisados periodicamente?']
 ];
 for(const [key,label] of qs){const d=document.createElement('div');d.className='q';d.innerHTML='<span>'+label+'</span><select data-key="'+key+'"><option value="0">Não</option><option value="1">Parcialmente</option><option value="2">Sim</option></select>';$('questions').appendChild(d)}
-function saved(){try{return JSON.parse(localStorage.getItem('ajr_order')||'null')}catch{return null}}
+function saved(){
+  try{return JSON.parse(localStorage.getItem('ajr_client_auth')||'null')}
+  catch{return null}
+}
+function purchaseSaved(){
+  try{return JSON.parse(localStorage.getItem('ajr_purchase')||'null')}
+  catch{return null}
+}
 function setAuth(v){auth={order_id:v.order_id,order_token:v.order_token};$('order').value=auth.order_id;$('token').value=auth.order_token}
 async function post(path,body){const r=await fetch(API+path,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)});const b=await r.json();if(!r.ok)throw new Error(b.error||'Falha');return b}
 function refreshButtons(){const ready=Boolean(auth&&accountData);$('run').disabled=!(ready&&exportData);$('checkCredits').disabled=!ready;$('apiStatus').textContent=ready?(exportData?'Acesso e arquivo prontos.':'Acesso autorizado. Carregue o Gestor AJR.'):'Valide o acesso.'}
@@ -78,7 +85,7 @@ async function validateAccess(){
   setAuth({order_id:$('order').value.trim(),order_token:$('token').value.trim()});
   accountData=await post('/api/account',auth);
   $('accessStatus').className='status ok';$('accessStatus').textContent='Acesso autorizado · '+accountData.company_name+' · Licença '+accountData.license_id;
-  localStorage.setItem('ajr_order',JSON.stringify({...saved(),...auth}));
+  localStorage.setItem('ajr_client_auth',JSON.stringify(auth));
  }catch(e){accountData=null;$('accessStatus').className='status warn';$('accessStatus').textContent=e.message}
  refreshButtons();
 }
@@ -112,6 +119,6 @@ function render(r){
 async function showAccount(){try{const b=await post('/api/account',auth);accountData=b;$('creditBox').innerHTML='<span class="credits">'+b.human_credits+' créditos</span><br>Até '+b.orientations_available+' orientações humanas disponíveis.<br>Licença: '+b.license_id+(b.alert?'<br><b>'+b.alert.message+'</b>':'')+(b.last_diagnostic?'<br>Último diagnóstico: '+b.last_diagnostic.score+'/100 · '+b.last_diagnostic.maturity:'')}catch(e){$('creditBox').textContent=e.message}}
 $('checkCredits').onclick=showAccount;
 const worker=location.hostname.endsWith('workers.dev');$('clientBack').href=worker?'/test/cliente':'cliente.html';
-const s=saved();if(s?.order_id&&s?.order_token){setAuth(s);validateAccess()}
+const s=saved()||purchaseSaved();if(s?.order_id&&s?.order_token){setAuth(s);validateAccess()}
 </script>
 </body></html>
