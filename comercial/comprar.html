@@ -10,9 +10,10 @@ CRA-MG nº 06-005485/D
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Conheça e adquira o Gestor AJR com Diagnóstico Empresarial 360.">
 <title>Comprar Gestor AJR | Diagnóstico Empresarial 360</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <style>
 :root{--n:#13283e;--b:#24658c;--a:#03a6a0;--bg:#f2f6f9;--t:#273444;--m:#637182;--l:#dbe4ed;--ok:#087f5b}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--t);font:16px/1.6 system-ui,-apple-system,Segoe UI,sans-serif}.wrap{width:min(1050px,calc(100% - 30px));margin:auto}header{background:white;border-bottom:1px solid var(--l)}nav{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:14px}.brand{font-weight:900;color:var(--n);text-decoration:none}.hero{padding:58px 0 38px;background:linear-gradient(120deg,#102a40,#1f5771);color:#fff}.hero h1{font-size:clamp(2rem,5vw,3.6rem);line-height:1.08;margin:0 0 14px}.hero p{max-width:790px;color:#e4f1f5}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:#fff;border:1px solid var(--l);border-radius:17px;padding:22px;margin:18px 0}.card h2,.card h3{color:var(--n)}.score{font-size:2rem;font-weight:950;color:var(--b)}.pill{display:inline-block;padding:4px 9px;border-radius:999px;background:#ddf5f3;color:#086b68;font-size:.82rem;font-weight:850}.price{font-size:3rem;font-weight:950;color:var(--n);line-height:1}.muted{color:var(--m)}.field{margin:11px 0}.field label{display:block;font-weight:800;color:var(--n);margin-bottom:5px}.field input{width:100%;padding:11px 12px;border:1px solid #cbd8e3;border-radius:10px;font:inherit}.btn{border:0;border-radius:10px;padding:12px 17px;background:var(--n);color:#fff;font-weight:850;cursor:pointer}.btn.alt{background:var(--b)}.btn:disabled{opacity:.45;cursor:not-allowed}.status{padding:14px;border-radius:12px;background:#edf4f7;margin:13px 0}.ok{background:#e3f5ec;color:#075e42}.warn{background:#fff4d8;color:#785600}.checkout{display:grid;grid-template-columns:1fr .8fr;gap:20px}.hidden{display:none}.pix{font-size:1.15rem;word-break:break-all;padding:12px;background:#f7fafc;border:1px dashed #adc1d1;border-radius:10px}ul{padding-left:20px}@media(max-width:760px){.grid,.checkout{grid-template-columns:1fr}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--t);font:16px/1.6 system-ui,-apple-system,Segoe UI,sans-serif}.wrap{width:min(1050px,calc(100% - 30px));margin:auto}header{background:white;border-bottom:1px solid var(--l)}nav{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:14px}.brand{font-weight:900;color:var(--n);text-decoration:none}.hero{padding:58px 0 38px;background:linear-gradient(120deg,#102a40,#1f5771);color:#fff}.hero h1{font-size:clamp(2rem,5vw,3.6rem);line-height:1.08;margin:0 0 14px}.hero p{max-width:790px;color:#e4f1f5}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:#fff;border:1px solid var(--l);border-radius:17px;padding:22px;margin:18px 0}.card h2,.card h3{color:var(--n)}.score{font-size:2rem;font-weight:950;color:var(--b)}.pill{display:inline-block;padding:4px 9px;border-radius:999px;background:#ddf5f3;color:#086b68;font-size:.82rem;font-weight:850}.price{font-size:3rem;font-weight:950;color:var(--n);line-height:1}.muted{color:var(--m)}.field{margin:11px 0}.field label{display:block;font-weight:800;color:var(--n);margin-bottom:5px}.field input{width:100%;padding:11px 12px;border:1px solid #cbd8e3;border-radius:10px;font:inherit}.btn{border:0;border-radius:10px;padding:12px 17px;background:var(--n);color:#fff;font-weight:850;cursor:pointer}.btn.alt{background:var(--b)}.btn:disabled{opacity:.45;cursor:not-allowed}.status{padding:14px;border-radius:12px;background:#edf4f7;margin:13px 0}.ok{background:#e3f5ec;color:#075e42}.warn{background:#fff4d8;color:#785600}.checkout{display:grid;grid-template-columns:1fr .8fr;gap:20px}.hidden{display:none}.pix{font-size:1.05rem;word-break:break-all;padding:12px;background:#f7fafc;border:1px dashed #adc1d1;border-radius:10px}.pix-pay{display:grid;grid-template-columns:230px 1fr;gap:18px;align-items:start;margin:14px 0}.qr-wrap{background:#fff;border:1px solid var(--l);border-radius:14px;padding:14px;display:flex;justify-content:center;align-items:center;min-height:230px}.pix-actions{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.pix-meta{margin:0 0 8px}.pix-copy{font:12px/1.45 ui-monospace,Consolas,monospace;max-height:100px;overflow:auto}.small{font-size:.86rem;color:var(--m)}ul{padding-left:20px}@media(max-width:760px){.grid,.checkout,.pix-pay{grid-template-columns:1fr}.qr-wrap{min-height:200px}}
 </style></head>
 <body>
 <header><nav class="wrap"><a class="brand" href="./">AJR Soluções Empresariais SC</a><a href="./">← Conhecer o produto</a></nav></header>
@@ -69,12 +70,62 @@ let current=null;
 const $=id=>document.getElementById(id);
 function save(v){current=v;localStorage.setItem('ajr_purchase',JSON.stringify(v))}
 function loadSaved(){try{const v=JSON.parse(localStorage.getItem('ajr_purchase')||'null');if(v?.order_id&&v?.order_token){current=v;showOrder(v)}}catch{}}
+async function copyText(value,button,label){
+ try{await navigator.clipboard.writeText(value);button.textContent='Copiado!';setTimeout(()=>button.textContent=label,1600)}
+ catch{alert('Não foi possível copiar automaticamente. Selecione e copie manualmente.')}
+}
 function showOrder(v){
  $('payment').classList.remove('hidden');
  $('orderInfo').innerHTML='<b>Pedido '+v.order_id+'</b><br>Valor: R$ 199,00';
  $('accessCodeBox').innerHTML='<b>Código secreto de acesso</b><br><span style="font-family:ui-monospace,Consolas,monospace">••••••••••••••••••••••••••••••••</span><br><button class="btn" type="button" id="copyAccess">Copiar código de acesso</button><br><small>Guarde este código em local seguro. Ele será usado para acessar sua Área do Cliente.</small>';
- setTimeout(()=>{const b=document.getElementById('copyAccess');if(b)b.onclick=async()=>{try{await navigator.clipboard.writeText(v.order_token);b.textContent='Código copiado'}catch{alert('Não foi possível copiar automaticamente.')}}},0);
- if(v.pix?.configured){$('pixBox').innerHTML='<h3>Pagamento por Pix</h3><p>Favorecido: <b>'+(v.pix.receiver||'')+'</b><br><span class="muted">Referente a: Gestor AJR — AJR Soluções Empresariais SC SC</span></p><div class="pix">'+v.pix.key+'</div><p class="muted">Depois de realizar o pagamento, clique em “Já paguei”. A liberação ocorrerá após a conferência.</p>'}else{$('pixBox').innerHTML='<div class="status warn">O pagamento Pix ainda não está ativado neste ambiente. Seu pedido foi criado, mas não realize pagamento até que as instruções sejam exibidas aqui.</div>'}}
+ setTimeout(()=>{const b=document.getElementById('copyAccess');if(b)b.onclick=()=>copyText(v.order_token,b,'Copiar código de acesso')},0);
+
+ const box=$('pixBox');box.innerHTML='';
+ if(v.pix?.configured){
+   const title=document.createElement('h3');title.textContent='Pagamento por Pix';box.appendChild(title);
+   const layout=document.createElement('div');layout.className='pix-pay';
+   const qrWrap=document.createElement('div');qrWrap.className='qr-wrap';qrWrap.id='pixQr';
+   const info=document.createElement('div');
+
+   const meta=document.createElement('p');meta.className='pix-meta';
+   const fav=document.createElement('b');fav.textContent=v.pix.receiver||'Vitor Alexandre Júnior';
+   meta.append('Favorecido: ',fav,document.createElement('br'));
+   const ref=document.createElement('span');ref.className='muted';ref.textContent='Referente a: Gestor AJR — AJR Soluções Empresariais SC';
+   meta.appendChild(ref);
+   info.appendChild(meta);
+
+   const amount=document.createElement('div');amount.className='status ok';amount.innerHTML='<b>Valor: R$ 199,00</b>';info.appendChild(amount);
+
+   const keyLabel=document.createElement('div');keyLabel.className='small';keyLabel.textContent='Chave Pix aleatória';info.appendChild(keyLabel);
+   const keyBox=document.createElement('div');keyBox.className='pix';keyBox.textContent=v.pix.key||'';info.appendChild(keyBox);
+
+   const actions=document.createElement('div');actions.className='pix-actions';
+   const keyBtn=document.createElement('button');keyBtn.type='button';keyBtn.className='btn';keyBtn.textContent='Copiar chave Pix';
+   keyBtn.onclick=()=>copyText(v.pix.key||'',keyBtn,'Copiar chave Pix');
+   const copyBtn=document.createElement('button');copyBtn.type='button';copyBtn.className='btn alt';copyBtn.textContent='Copiar Pix copia e cola';
+   copyBtn.disabled=!v.pix.copy_paste;copyBtn.onclick=()=>copyText(v.pix.copy_paste||'',copyBtn,'Copiar Pix copia e cola');
+   actions.append(keyBtn,copyBtn);info.appendChild(actions);
+
+   if(v.pix.copy_paste){
+     const details=document.createElement('details');
+     const summary=document.createElement('summary');summary.textContent='Ver Pix copia e cola';
+     const cp=document.createElement('div');cp.className='pix pix-copy';cp.textContent=v.pix.copy_paste;
+     details.append(summary,cp);info.appendChild(details);
+   }
+
+   const note=document.createElement('p');note.className='muted';note.textContent='Escaneie o QR Code ou use um dos botões de cópia. Depois do pagamento, clique em “Já paguei”. A liberação ocorrerá após a conferência.';info.appendChild(note);
+   layout.append(qrWrap,info);box.appendChild(layout);
+
+   if(v.pix.copy_paste&&window.QRCode){
+     qrWrap.innerHTML='';
+     new QRCode(qrWrap,{text:v.pix.copy_paste,width:200,height:200,correctLevel:QRCode.CorrectLevel.M});
+   }else{
+     qrWrap.textContent='QR Code indisponível. Use a chave Pix ou o Pix copia e cola.';
+   }
+ }else{
+   box.innerHTML='<div class="status warn">O pagamento Pix ainda não está ativado neste ambiente. Seu pedido foi criado, mas não realize pagamento até que as instruções sejam exibidas aqui.</div>';
+ }
+}
 async function post(path,body){const r=await fetch(API+path,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)});const b=await r.json();if(!r.ok)throw new Error(b.error||'Falha');return b}
 $('create').onclick=async()=>{try{$('createStatus').textContent='Criando pedido...';const b=await post('/api/orders/create',{company_name:$('company').value,cnpj:$('cnpj').value,email:$('email').value,responsible_name:$('responsible').value,phone:$('phone').value});save({order_id:b.order_id,order_token:b.order_token,pix:b.pix});showOrder(current);$('createStatus').className='status ok';$('createStatus').textContent='Pedido criado com sucesso: '+b.order_id;$('payment').scrollIntoView({behavior:'smooth'})}catch(e){$('createStatus').className='status warn';$('createStatus').textContent=e.message}}
 $('paid').onclick=async()=>{if(!current)return;try{const b=await post('/api/orders/report-payment',{...current,payer_name:$('payer').value});$('orderStatus').className='status ok';$('orderStatus').textContent=b.message||'Pagamento informado.';await refresh()}catch(e){$('orderStatus').className='status warn';$('orderStatus').textContent=e.message}}
