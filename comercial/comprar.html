@@ -32,6 +32,14 @@ CRA-MG nº 06-005485/D
 <div><div class="score">94,3/100</div><b>Avançado · Estável</b><p class="muted">Operação organizada, liquidez confortável, controles consistentes e bom desempenho comercial.</p></div>
 </div></section>
 
+<section class="card"><h2>Resumo da contratação</h2>
+<div class="grid">
+<div><b>Produto</b><p class="muted">Gestor AJR em Excel + Diagnóstico Empresarial 360 + 200 Créditos AJR.</p></div>
+<div><b>Preço</b><p class="muted">R$ 199,00, pagamento por Pix.</p></div>
+<div><b>Entrega</b><p class="muted">Liberação após conferência manual do pagamento, com acesso à Área do Cliente e download privado.</p></div>
+</div>
+<p class="muted">Ferramenta de apoio gerencial. Não substitui contabilidade, auditoria, assessoria jurídica ou tributária. <a href="instrucoes.html">Veja como comprar e usar</a>.</p>
+</section>
 <section class="card checkout"><div>
 <span class="pill">Oferta inicial</span><div class="price">R$ 199</div>
 <h2>Solicitar compra do Gestor AJR</h2>
@@ -41,6 +49,10 @@ CRA-MG nº 06-005485/D
 <div class="field"><label for="email">E-mail principal</label><input id="email" type="email" autocomplete="email"></div>
 <div class="field"><label for="responsible">Responsável</label><input id="responsible" autocomplete="name"></div>
 <div class="field"><label for="phone">Telefone/WhatsApp</label><input id="phone" autocomplete="tel"></div>
+<div class="status">
+<label style="display:block;margin:6px 0"><input id="acceptTerms" type="checkbox" style="width:auto;margin-right:8px">Li e aceito os <a href="termos.html" target="_blank" rel="noopener">Termos de Uso e Licença</a>.</label>
+<label style="display:block;margin:6px 0"><input id="acceptPrivacy" type="checkbox" style="width:auto;margin-right:8px">Li o <a href="privacidade.html" target="_blank" rel="noopener">Aviso de Privacidade/LGPD</a> e estou ciente do tratamento necessário para a contratação.</label>
+</div>
 <button class="btn" id="create">Criar pedido</button>
 <div id="createStatus" class="status">Nenhum pedido criado nesta sessão.</div>
 </div>
@@ -64,6 +76,9 @@ CRA-MG nº 06-005485/D
 <div id="orderStatus" class="status">Aguardando ação.</div>
 </section>
 </main>
+<footer class="wrap" style="padding:24px 0 40px;color:var(--m);font-size:.9rem">
+<a href="termos.html">Termos de Uso e Licença</a> · <a href="privacidade.html">Privacidade/LGPD</a> · <a href="instrucoes.html">Como comprar e usar</a>
+</footer>
 <script>
 const API=document.documentElement.dataset.apiBase;
 let current=null;
@@ -127,7 +142,7 @@ function showOrder(v){
  }
 }
 async function post(path,body){const r=await fetch(API+path,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)});const b=await r.json();if(!r.ok)throw new Error(b.error||'Falha');return b}
-$('create').onclick=async()=>{try{$('createStatus').textContent='Criando pedido...';const b=await post('/api/orders/create',{company_name:$('company').value,cnpj:$('cnpj').value,email:$('email').value,responsible_name:$('responsible').value,phone:$('phone').value});save({order_id:b.order_id,order_token:b.order_token,pix:b.pix});showOrder(current);$('createStatus').className='status ok';$('createStatus').textContent='Pedido criado com sucesso: '+b.order_id;$('payment').scrollIntoView({behavior:'smooth'})}catch(e){$('createStatus').className='status warn';$('createStatus').textContent=e.message}}
+$('create').onclick=async()=>{try{$('createStatus').textContent='Criando pedido...';const b=await post('/api/orders/create',{company_name:$('company').value,cnpj:$('cnpj').value,email:$('email').value,responsible_name:$('responsible').value,phone:$('phone').value,accepted_terms:$('acceptTerms').checked,accepted_privacy:$('acceptPrivacy').checked});save({order_id:b.order_id,order_token:b.order_token,pix:b.pix});showOrder(current);$('createStatus').className='status ok';$('createStatus').textContent='Pedido criado com sucesso: '+b.order_id;$('payment').scrollIntoView({behavior:'smooth'})}catch(e){$('createStatus').className='status warn';$('createStatus').textContent=e.message}}
 $('paid').onclick=async()=>{if(!current)return;try{const b=await post('/api/orders/report-payment',{...current,payer_name:$('payer').value});$('orderStatus').className='status ok';$('orderStatus').textContent=b.message||'Pagamento informado.';await refresh()}catch(e){$('orderStatus').className='status warn';$('orderStatus').textContent=e.message}}
 async function refresh(){if(!current)return;try{
  const b=await post('/api/orders/status',current);
