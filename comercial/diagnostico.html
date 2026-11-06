@@ -134,8 +134,9 @@ function render(r){
  document.getElementById('result').scrollIntoView({behavior:'smooth'});
 }
 document.getElementById('checkCredits').addEventListener('click',async()=>{
- const q=new URLSearchParams({license_id:document.getElementById('license').value.trim(),cnpj:document.getElementById('cnpj').value.trim(),email:document.getElementById('email').value.trim()});
- const r=await fetch(API_BASE+'/api/account?'+q.toString());const b=await r.json();if(!r.ok){document.getElementById('creditBox').textContent=b.error||'Falha na consulta.';return}
+ const payload={license_id:document.getElementById('license').value.trim(),cnpj:document.getElementById('cnpj').value.trim(),email:document.getElementById('email').value.trim()};
+ const r=await fetch(API_BASE+'/api/account',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(payload)});
+ const b=await r.json();if(!r.ok){document.getElementById('creditBox').textContent=b.error||'Falha na consulta.';return}
  document.getElementById('creditBox').innerHTML='<span class="credits">'+b.human_credits+' créditos</span><br>Até '+b.orientations_available+' orientações humanas disponíveis.'+(b.alert?'<br><b>'+b.alert.message+'</b>':'');
 });
 refreshButtons();
