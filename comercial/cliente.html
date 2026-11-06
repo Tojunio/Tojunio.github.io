@@ -94,6 +94,19 @@ async function loadAccount(){
 }
 $('access').onclick=async()=>{setAuth({order_id:$('order').value.trim(),order_token:$('token').value.trim()});await loadAccount()};
 $('refresh').onclick=loadAccount;
+$('requestCancel').onclick=async()=>{
+ if(!auth)return;
+ if(!confirm('Deseja registrar uma solicitação de cancelamento para este pedido?'))return;
+ $('cancelStatus').textContent='Enviando solicitação...';
+ try{
+   const b=await post('/api/orders/cancel-request',{...auth,reason:$('cancelReason').value});
+   $('cancelStatus').className='status ok';
+   $('cancelStatus').textContent=b.message+(b.request_id?' Protocolo: '+b.request_id:'');
+ }catch(e){
+   $('cancelStatus').className='status warn';
+   $('cancelStatus').textContent=e.message;
+ }
+};
 $('copyCode').onclick=async()=>{if(!auth)return;try{await navigator.clipboard.writeText(auth.order_token);$('copyCode').textContent='Código copiado'}catch{alert('Não foi possível copiar automaticamente.')}};
 $('download').onclick=async()=>{if(!auth)return;try{const r=await fetch(API+'/api/orders/download',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(auth)});if(!r.ok){const b=await r.json();throw new Error(b.error||'Falha no download')}const blob=await r.blob(),u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download='Gestor_AJR_MVP_0_1.xlsx';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)}catch(e){$('downloadStatus').className='status warn';$('downloadStatus').textContent=e.message}};
 configureLinks();
