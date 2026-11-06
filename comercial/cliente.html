@@ -45,7 +45,7 @@ CRA-MG nº 06-005485/D
 
 <section class="card hidden" id="accessCodeCard">
 <h3>Seu acesso</h3><p class="muted">Guarde este código em local seguro. Ele não é o CNPJ, e-mail nem número da licença.</p>
-<div id="accessCode" class="code"></div>
+<div id="accessCode" class="code">••••••••••••••••••••••••••••••••</div><button id="copyCode">Copiar código de acesso</button>
 </section>
 </main>
 <script>
@@ -70,12 +70,13 @@ async function loadAccount(){
   $('alert').innerHTML=b.alert?'<div class="status warn" style="margin-top:10px">'+b.alert.message+'</div>':'';
   $('downloadStatus').className='status '+(b.download_ready?'ok':'');
   $('downloadStatus').textContent=b.download_ready?'Gestor AJR disponível para download.':'Licença ativa. A entrega digital do arquivo ainda está sendo configurada.';
-  $('accessCode').textContent=auth.order_token;
+  $('accessCode').textContent='••••••••••••••••••••••••••••••••';
   $('loginStatus').className='status ok';$('loginStatus').textContent='Acesso autorizado.';
  }catch(e){$('accountCard').classList.add('hidden');$('loginStatus').className='status warn';$('loginStatus').textContent=e.message}
 }
 $('access').onclick=async()=>{setAuth({order_id:$('order').value.trim(),order_token:$('token').value.trim()});await loadAccount()};
 $('refresh').onclick=loadAccount;
+$('copyCode').onclick=async()=>{if(!auth)return;try{await navigator.clipboard.writeText(auth.order_token);$('copyCode').textContent='Código copiado'}catch{alert('Não foi possível copiar automaticamente.')}};
 $('download').onclick=async()=>{if(!auth)return;try{const r=await fetch(API+'/api/orders/download',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(auth)});if(!r.ok){const b=await r.json();throw new Error(b.error||'Falha no download')}const blob=await r.blob(),u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download='Gestor_AJR_MVP_0_1.xlsx';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)}catch(e){$('downloadStatus').className='status warn';$('downloadStatus').textContent=e.message}};
 configureLinks();
 const s=saved();if(s?.order_id&&s?.order_token){setAuth(s);loadAccount()}
