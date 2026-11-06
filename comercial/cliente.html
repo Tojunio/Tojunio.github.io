@@ -76,7 +76,8 @@ async function loadAccount(){
   $('credits').textContent=b.human_credits+' créditos';$('orientations').textContent='Até '+b.orientations_available+' orientações humanas disponíveis.';
   $('alert').innerHTML=b.alert?'<div class="status warn" style="margin-top:10px">'+b.alert.message+'</div>':'';
   $('downloadStatus').className='status '+(b.download_ready?'ok':'');
-  $('downloadStatus').textContent=b.download_ready?'Gestor AJR disponível para download.':'Licença ativa. A entrega digital do arquivo ainda está sendo configurada.';
+  $('downloadStatus').textContent=b.download_ready?'Gestor AJR disponível para download.':'Licença ativa. O arquivo do Gestor AJR ainda não está disponível para download.';
+  $('download').disabled=!b.download_ready;
   $('accessCode').textContent='••••••••••••••••••••••••••••••••';
   $('loginStatus').className='status ok';$('loginStatus').textContent='Acesso autorizado.';
  }catch(e){$('accountCard').classList.add('hidden');$('loginStatus').className='status warn';$('loginStatus').textContent=e.message}
