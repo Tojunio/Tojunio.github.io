@@ -67,8 +67,8 @@ CRA-MG nº 06-005485/D
 const API=document.documentElement.dataset.apiBase;
 let current=null;
 const $=id=>document.getElementById(id);
-function save(v){current=v;localStorage.setItem('ajr_order',JSON.stringify(v))}
-function loadSaved(){try{const v=JSON.parse(localStorage.getItem('ajr_order')||'null');if(v?.order_id&&v?.order_token){current=v;showOrder(v)}}catch{}}
+function save(v){current=v;localStorage.setItem('ajr_purchase',JSON.stringify(v))}
+function loadSaved(){try{const v=JSON.parse(localStorage.getItem('ajr_purchase')||'null');if(v?.order_id&&v?.order_token){current=v;showOrder(v)}}catch{}}
 function showOrder(v){
  $('payment').classList.remove('hidden');
  $('orderInfo').innerHTML='<b>Pedido '+v.order_id+'</b><br>Valor: R$ 199,00';
