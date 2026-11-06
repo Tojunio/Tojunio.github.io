@@ -43,11 +43,21 @@ CRA-MG nº 06-005485/D
 <div id="downloadStatus" class="status">Produto liberado após confirmação do pagamento.</div>
 </section>
 
+<section class="card hidden" id="cancelCard">
+<h3>Cancelamento</h3>
+<p class="muted">Use este canal para solicitar cancelamento da contratação. A solicitação ficará registrada e será analisada conforme a legislação aplicável e as condições da contratação.</p>
+<div class="field"><label for="cancelReason">Motivo (opcional)</label><input id="cancelReason" maxlength="1000" placeholder="Informe o motivo, se desejar"></div>
+<button id="requestCancel">Solicitar cancelamento</button>
+<div id="cancelStatus" class="status">Nenhuma solicitação enviada nesta sessão.</div>
+</section>
+
 <section class="card hidden" id="accessCodeCard">
 <h3>Seu acesso</h3><p class="muted">Guarde este código em local seguro. Ele não é o CNPJ, e-mail nem número da licença.</p>
 <div id="accessCode" class="code">••••••••••••••••••••••••••••••••</div><button id="copyCode">Copiar código de acesso</button>
 </section>
-</main>
+<footer class="wrap" style="padding:24px 0 40px;color:var(--m);font-size:.9rem">
+<a href="termos.html">Termos de Uso e Licença</a> · <a href="privacidade.html">Privacidade/LGPD</a> · <a href="instrucoes.html">Como comprar e usar</a>
+</footer>
 <script>
 const API=document.documentElement.dataset.apiBase;
 const $=id=>document.getElementById(id);
@@ -71,7 +81,7 @@ async function loadAccount(){
  $('loginStatus').textContent='Validando acesso...';
  try{
   const b=await post('/api/account',auth);
-  $('accountCard').classList.remove('hidden');$('accessCodeCard').classList.remove('hidden');
+  $('accountCard').classList.remove('hidden');$('accessCodeCard').classList.remove('hidden');$('cancelCard').classList.remove('hidden');
   $('company').textContent=b.company_name||'Empresa';$('license').textContent=b.license_id;
   $('credits').textContent=b.human_credits+' créditos';$('orientations').textContent='Até '+b.orientations_available+' orientações humanas disponíveis.';
   $('alert').innerHTML=b.alert?'<div class="status warn" style="margin-top:10px">'+b.alert.message+'</div>':'';
