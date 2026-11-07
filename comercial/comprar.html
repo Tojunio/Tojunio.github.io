@@ -163,13 +163,15 @@ $('download').onclick=async()=>{if(!current)return;const r=await fetch(API+'/api
 // TESTE COMERCIAL AJR AUTOMÁTICO
 const isTest=location.hostname.endsWith('workers.dev')&&location.pathname==='/test/compra';
 if(isTest&&!current){
- $('company').value='Empresa Fictícia AJR Comércio Ltda.';
- $('cnpj').value='15975385265412';
- $('email').value='cliente.teste@ajr.local';
+ const stamp=String(Date.now()).slice(-8);
+ $('company').value='Empresa Fictícia AJR Teste Final '+stamp;
+ $('cnpj').value='98'+stamp+'0001'.slice(0,4);
+ $('cnpj').value=($('cnpj').value+'00000000000000').slice(0,14);
+ $('email').value='teste.final.'+stamp+'@ajr.local';
  $('responsible').value='Cliente Teste AJR';
  $('phone').value='34999990000';
  $('createStatus').className='status';
- $('createStatus').textContent='Ambiente de teste: dados fictícios já preenchidos. Clique em Criar pedido.';
+ $('createStatus').textContent='Ambiente de teste final: dados fictícios únicos já preenchidos. Marque os dois aceites e clique em Criar pedido.';
 }
 loadSaved();if(current)refresh();
 </script></body></html>
