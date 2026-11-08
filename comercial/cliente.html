@@ -1,0 +1,116 @@
+<!--
+GESTOR AJR / ÁREA DO CLIENTE
+Autor e criador: Vitor Alexandre Júnior
+Tecnólogo em Gestão de Recursos Humanos
+CRA-MG nº 06-005485/D
+© 2026 Vitor Alexandre Júnior. Todos os direitos reservados.
+-->
+<!doctype html>
+<html lang="pt-BR" data-api-base="https://ajrsc-api.tojunio.workers.dev">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Área do cliente Gestor AJR.">
+<title>Área do Cliente | Gestor AJR</title>
+<style>
+:root{--n:#13283e;--b:#24658c;--bg:#f2f6f9;--t:#273444;--m:#637182;--l:#dbe4ed;--ok:#087f5b;--warn:#8a5a00}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--t);font:16px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}.wrap{width:min(980px,calc(100% - 30px));margin:auto}header{background:#fff;border-bottom:1px solid var(--l)}nav{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:14px}.brand{font-weight:900;color:var(--n);text-decoration:none}.card{background:#fff;border:1px solid var(--l);border-radius:17px;padding:22px;margin:18px 0}.hero{padding:38px 0 8px}.hero h1{color:var(--n);font-size:clamp(2rem,5vw,3.2rem);margin:0}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.stat{font-size:2rem;font-weight:950;color:var(--b)}.muted{color:var(--m)}.status{padding:13px;border-radius:11px;background:#edf4f7}.ok{background:#e3f5ec;color:#075e42}.warn{background:#fff3d6;color:var(--warn)}button,.btn{display:inline-block;border:0;border-radius:10px;padding:11px 15px;background:var(--n);color:#fff;font-weight:850;text-decoration:none;cursor:pointer;margin:5px 5px 5px 0}.btn.alt{background:var(--b)}input{width:100%;padding:11px;border:1px solid #cbd8e3;border-radius:9px;font:inherit}.field{margin:10px 0}.field label{display:block;font-weight:800;color:var(--n);margin-bottom:4px}.hidden{display:none}.code{word-break:break-all;font-family:ui-monospace,Consolas,monospace;font-size:.88rem;background:#f7fafc;border:1px dashed #adc1d1;padding:10px;border-radius:9px}@media(max-width:720px){.grid{grid-template-columns:1fr}}
+</style></head>
+<body>
+<header><nav class="wrap"><a class="brand" href="./">Gestor AJR</a><a href="./">← Página comercial</a></nav></header>
+<main class="wrap">
+<section class="hero"><h1>Área do Cliente</h1><p class="muted">Acesso protegido pelo código secreto do pedido liberado.</p></section>
+
+<section class="card" id="loginCard">
+<h2>Acessar minha conta</h2>
+<p class="muted">Se você comprou neste navegador, os dados podem ser recuperados automaticamente. Caso contrário, informe o Pedido AJR e o código secreto de acesso.</p>
+<div class="grid">
+<div class="field"><label for="order">Pedido AJR</label><input id="order" placeholder="AJR-PED-XXXXXXXXXX"></div>
+<div class="field"><label for="token">Código secreto de acesso</label><input id="token" type="password" autocomplete="off"></div>
+</div>
+<button id="access">Acessar</button>
+<div id="loginStatus" class="status">Aguardando acesso.</div>
+</section>
+
+<section class="card hidden" id="accountCard">
+<div class="grid">
+<div><h2 id="company">Empresa</h2><div class="muted">Licença</div><div id="license" class="stat" style="font-size:1.3rem"></div></div>
+<div><div class="muted">Créditos AJR</div><div id="credits" class="stat">—</div><div id="orientations"></div><div id="alert"></div></div>
+</div>
+<div style="margin-top:18px">
+<a class="btn alt" id="diagnosticLink" href="diagnostico.html">Abrir Diagnóstico 360</a>
+<button id="download">Baixar Gestor AJR</button>
+<button id="refresh">Atualizar conta</button>
+</div>
+<div id="downloadStatus" class="status">Produto liberado após confirmação do pagamento.</div>
+</section>
+
+<section class="card hidden" id="cancelCard">
+<h3>Cancelamento</h3>
+<p class="muted">Use este canal para solicitar cancelamento da contratação. A solicitação ficará registrada e será analisada conforme a legislação aplicável e as condições da contratação.</p>
+<div class="field"><label for="cancelReason">Motivo (opcional)</label><input id="cancelReason" maxlength="1000" placeholder="Informe o motivo, se desejar"></div>
+<button id="requestCancel">Solicitar cancelamento</button>
+<div id="cancelStatus" class="status">Nenhuma solicitação enviada nesta sessão.</div>
+</section>
+
+<section class="card hidden" id="accessCodeCard">
+<h3>Seu acesso</h3><p class="muted">Guarde este código em local seguro. Ele não é o CNPJ, e-mail nem número da licença.</p>
+<div id="accessCode" class="code">••••••••••••••••••••••••••••••••</div><button id="copyCode">Copiar código de acesso</button>
+</section>
+<footer class="wrap" style="padding:24px 0 40px;color:var(--m);font-size:12px;line-height:1.55">
+<div><b>Fornecedor:</b> 70.028.073 VITOR ALEXANDRE JUNIOR · <b>CNPJ:</b> 70.028.073/0001-77 · <b>Nome comercial:</b> AJR Soluções Empresariais SC · Rua José de Souza Barros, 172, Sala 05, Bairro São Francisco, Rio Paranaíba – MG, CEP 38.810-000 · contato: tojunio@gmail.com</div>
+<div style="margin-top:5px"><a href="termos.html">Termos de Uso e Licença</a> · <a href="privacidade.html">Privacidade/LGPD</a> · <a href="instrucoes.html">Como comprar e usar</a></div>
+</footer>
+<script>
+const API=document.documentElement.dataset.apiBase;
+const $=id=>document.getElementById(id);
+let auth=null;
+function saved(){
+  try{return JSON.parse(localStorage.getItem('ajr_client_auth')||'null')}
+  catch{return null}
+}
+function purchaseSaved(){
+  try{return JSON.parse(localStorage.getItem('ajr_purchase')||'null')}
+  catch{return null}
+}
+function setAuth(v){auth={order_id:v.order_id,order_token:v.order_token};localStorage.setItem('ajr_client_auth',JSON.stringify(auth));$('order').value=auth.order_id;$('token').value=auth.order_token}
+async function post(path,body){const r=await fetch(API+path,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)});const b=await r.json();if(!r.ok)throw new Error(b.error||'Falha');return b}
+function configureLinks(){
+ const worker=location.hostname.endsWith('workers.dev');
+ $('diagnosticLink').href=worker?'/test/diagnostico-cliente':'diagnostico.html';
+}
+async function loadAccount(){
+ if(!auth)return;
+ $('loginStatus').textContent='Validando acesso...';
+ try{
+  const b=await post('/api/account',auth);
+  $('accountCard').classList.remove('hidden');$('accessCodeCard').classList.remove('hidden');$('cancelCard').classList.remove('hidden');
+  $('company').textContent=b.company_name||'Empresa';$('license').textContent=b.license_id;
+  $('credits').textContent=b.human_credits+' créditos';$('orientations').textContent='Até '+b.orientations_available+' orientações humanas disponíveis.';
+  $('alert').innerHTML=b.alert?'<div class="status warn" style="margin-top:10px">'+b.alert.message+'</div>':'';
+  $('downloadStatus').className='status '+(b.download_ready?'ok':'');
+  $('downloadStatus').textContent=b.download_ready?'Gestor AJR disponível para download.':'Licença ativa. O arquivo do Gestor AJR ainda não está disponível para download.';
+  $('download').disabled=!b.download_ready;
+  $('accessCode').textContent='••••••••••••••••••••••••••••••••';
+  $('loginStatus').className='status ok';$('loginStatus').textContent='Acesso autorizado.';
+ }catch(e){$('accountCard').classList.add('hidden');$('loginStatus').className='status warn';$('loginStatus').textContent=e.message}
+}
+$('access').onclick=async()=>{setAuth({order_id:$('order').value.trim(),order_token:$('token').value.trim()});await loadAccount()};
+$('refresh').onclick=loadAccount;
+$('requestCancel').onclick=async()=>{
+ if(!auth)return;
+ if(!confirm('Deseja registrar uma solicitação de cancelamento para este pedido?'))return;
+ $('cancelStatus').textContent='Enviando solicitação...';
+ try{
+   const b=await post('/api/orders/cancel-request',{...auth,reason:$('cancelReason').value});
+   $('cancelStatus').className='status ok';
+   $('cancelStatus').textContent=b.message+(b.request_id?' Protocolo: '+b.request_id:'');
+ }catch(e){
+   $('cancelStatus').className='status warn';
+   $('cancelStatus').textContent=e.message;
+ }
+};
+$('copyCode').onclick=async()=>{if(!auth)return;try{await navigator.clipboard.writeText(auth.order_token);$('copyCode').textContent='Código copiado'}catch{alert('Não foi possível copiar automaticamente.')}};
+$('download').onclick=async()=>{if(!auth)return;try{const r=await fetch(API+'/api/orders/download',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(auth)});if(!r.ok){const b=await r.json();throw new Error(b.error||'Falha no download')}const blob=await r.blob(),u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download='Gestor_AJR_MVP_0_1.xlsx';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)}catch(e){$('downloadStatus').className='status warn';$('downloadStatus').textContent=e.message}};
+configureLinks();
+const s=saved()||purchaseSaved();if(s?.order_id&&s?.order_token){setAuth(s);loadAccount()}
+</script>
+</body></html>

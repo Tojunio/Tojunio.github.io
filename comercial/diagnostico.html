@@ -1,0 +1,127 @@
+<!--
+GESTOR AJR / DIAGNÓSTICO EMPRESARIAL 360 — INTERFACE DO CLIENTE
+AJR SOLUÇÕES EMPRESARIAIS SC
+Autor e criador: Vitor Alexandre Júnior
+Tecnólogo em Gestão de Recursos Humanos
+CRA-MG nº 06-005485/D
+© 2026 Vitor Alexandre Júnior. Todos os direitos reservados.
+-->
+<!doctype html>
+<html lang="pt-BR" data-api-base="https://ajrsc-api.tojunio.workers.dev">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Diagnóstico Empresarial 360 | Gestor AJR</title>
+<meta name="description" content="Diagnóstico Empresarial 360 integrado ao Gestor AJR.">
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<style>
+:root{--n:#13283e;--b:#24658c;--bg:#f2f6f9;--t:#273444;--m:#637182;--l:#dbe4ed;--ok:#087f5b;--warn:#8a5a00}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--t);font:16px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}.wrap{width:min(980px,calc(100% - 32px));margin:auto}header{background:#fff;border-bottom:1px solid var(--l)}.nav{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{font-weight:900;color:var(--n);text-decoration:none}.hero{padding:40px 0 16px}.hero h1{margin:0;color:var(--n);font-size:clamp(2rem,5vw,3.4rem)}.hero p{max-width:760px;color:var(--m)}.card{background:#fff;border:1px solid var(--l);border-radius:18px;padding:24px;margin:18px 0}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.field label{display:block;font-weight:800;color:var(--n);margin-bottom:5px}.field input,.field select{width:100%;padding:11px 12px;border:1px solid #cdd9e4;border-radius:10px;background:#fff;font:inherit}.q{display:grid;grid-template-columns:1fr 180px;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid #edf1f4}.btn{appearance:none;border:0;border-radius:11px;background:var(--n);color:#fff;padding:12px 18px;font-weight:850;cursor:pointer}.btn:disabled{opacity:.45}.status{padding:12px 14px;border-radius:12px;background:#edf4f7;margin:12px 0}.ok{background:#e3f5ec;color:#075e42}.warn{background:#fff3d6;color:var(--warn)}.result{display:none}.score{font-size:3rem;font-weight:950;color:var(--b)}.dims{display:grid;gap:10px}.dim{display:grid;grid-template-columns:150px 1fr 55px;align-items:center;gap:10px}.bar{height:10px;border-radius:999px;background:#e4ebf0;overflow:hidden}.bar span{display:block;height:100%;background:var(--b)}.plan{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.credits{font-size:1.8rem;font-weight:900;color:var(--n)}.hidden{display:none}@media(max-width:720px){.grid,.plan{grid-template-columns:1fr}.q{grid-template-columns:1fr}.dim{grid-template-columns:105px 1fr 45px}}
+</style></head>
+<body>
+<header><div class="wrap nav"><a class="brand" href="./">Gestor AJR</a><a id="clientBack" href="cliente.html">← Área do Cliente</a></div></header>
+<main class="wrap">
+<section class="hero"><h1>Diagnóstico Empresarial 360</h1><p>O arquivo é lido no navegador e somente os dados consolidados da aba <b>DIAG_EXPORT</b> são enviados ao backend privado.</p></section>
+
+<section class="card">
+<h2>1. Acesso protegido</h2>
+<div class="grid">
+<div class="field"><label for="order">Pedido AJR</label><input id="order" placeholder="AJR-PED-XXXXXXXXXX"></div>
+<div class="field"><label for="token">Código secreto de acesso</label><input id="token" type="password" autocomplete="off"></div>
+</div>
+<button class="btn" id="access">Validar acesso</button>
+<div id="accessStatus" class="status">Aguardando autenticação.</div>
+</section>
+
+<section class="card">
+<h2>2. Gestor AJR</h2>
+<div class="field"><label for="file">Selecione o arquivo Excel do Gestor AJR</label><input id="file" type="file" accept=".xlsx,.xlsm,.xls"></div>
+<div id="fileStatus" class="status">Nenhum arquivo analisado.</div>
+</section>
+
+<section class="card">
+<h2>3. Perguntas complementares</h2><p>Escolha: <b>Não</b>, <b>Parcialmente</b> ou <b>Sim</b>.</p><div id="questions"></div>
+</section>
+
+<section class="card">
+<h2>4. Executar</h2>
+<button class="btn" id="run" disabled>Gerar Diagnóstico 360</button>
+<button class="btn" id="checkCredits" disabled>Consultar conta</button>
+<div id="apiStatus" class="status">Valide o acesso e carregue o Gestor AJR.</div>
+</section>
+
+<section class="card result" id="result">
+<div class="grid"><div><div class="score" id="score">—</div><h2 id="maturity"></h2><div id="situation"></div></div><div><b>Confiança</b><div id="confidence"></div><p id="notice"></p><div id="alerts"></div></div></div>
+<h2>Dimensões</h2><div class="dims" id="dims"></div>
+<h2>Plano 30 dias</h2><ul id="p30"></ul><h2>Plano 60 dias</h2><ul id="p60"></ul><h2>Plano 90 dias</h2><ul id="p90"></ul>
+</section>
+
+<section class="card"><h2>Conta e Créditos AJR</h2><div id="creditBox" class="status">Valide seu acesso.</div></section>
+</main>
+<footer class="wrap" style="padding:24px 0 40px;color:var(--m);font-size:12px;line-height:1.55">
+<div><b>Fornecedor:</b> 70.028.073 VITOR ALEXANDRE JUNIOR · CNPJ 70.028.073/0001-77 · <b>Nome comercial:</b> AJR Soluções Empresariais SC · Rua José de Souza Barros, 172, Sala 05, Bairro São Francisco, Rio Paranaíba – MG, CEP 38.810-000 · contato: tojunio@gmail.com</div>
+</footer>
+<script>
+const API=document.documentElement.dataset.apiBase||'';
+const $=id=>document.getElementById(id);
+let auth=null,exportData=null,accountData=null;
+const qs=[
+['planejamento_formal','A empresa possui planejamento formal?'],['metas_periodicas','Existem metas periódicas definidas e acompanhadas?'],
+['responsabilidades_definidas','As responsabilidades principais estão claramente definidas?'],['processos_documentados','Os processos críticos estão documentados?'],
+['revisao_precos','Há uma rotina para revisão de preços?'],['politica_cobranca','Existe uma rotina ou política de cobrança?'],
+['criterios_fornecedores','Existem critérios para seleção e revisão de fornecedores?'],['rotina_estoque_capacidade','Estoque ou capacidade de atendimento são acompanhados regularmente?'],
+['treinamento','Existe rotina de treinamento ou orientação das pessoas envolvidas?'],['revisao_indicadores','Os indicadores do negócio são revisados periodicamente?']
+];
+for(const [key,label] of qs){const d=document.createElement('div');d.className='q';d.innerHTML='<span>'+label+'</span><select data-key="'+key+'"><option value="0">Não</option><option value="1">Parcialmente</option><option value="2">Sim</option></select>';$('questions').appendChild(d)}
+function saved(){
+  try{return JSON.parse(localStorage.getItem('ajr_client_auth')||'null')}
+  catch{return null}
+}
+function purchaseSaved(){
+  try{return JSON.parse(localStorage.getItem('ajr_purchase')||'null')}
+  catch{return null}
+}
+function setAuth(v){auth={order_id:v.order_id,order_token:v.order_token};$('order').value=auth.order_id;$('token').value=auth.order_token}
+async function post(path,body){const r=await fetch(API+path,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)});const b=await r.json();if(!r.ok)throw new Error(b.error||'Falha');return b}
+function refreshButtons(){const ready=Boolean(auth&&accountData);$('run').disabled=!(ready&&exportData);$('checkCredits').disabled=!ready;$('apiStatus').textContent=ready?(exportData?'Acesso e arquivo prontos.':'Acesso autorizado. Carregue o Gestor AJR.'):'Valide o acesso.'}
+async function validateAccess(){
+ try{
+  setAuth({order_id:$('order').value.trim(),order_token:$('token').value.trim()});
+  accountData=await post('/api/account',auth);
+  $('accessStatus').className='status ok';$('accessStatus').textContent='Acesso autorizado · '+accountData.company_name+' · Licença '+accountData.license_id;
+  localStorage.setItem('ajr_client_auth',JSON.stringify(auth));
+ }catch(e){accountData=null;$('accessStatus').className='status warn';$('accessStatus').textContent=e.message}
+ refreshButtons();
+}
+$('access').onclick=validateAccess;
+
+$('file').addEventListener('change',async e=>{
+ exportData=null;const f=e.target.files[0];if(!f){refreshButtons();return}
+ try{
+  const buf=await f.arrayBuffer(),wb=XLSX.read(buf,{type:'array',cellDates:true}),sh=wb.Sheets['DIAG_EXPORT'];
+  if(!sh)throw new Error('Aba DIAG_EXPORT não encontrada. Use a versão atual do Gestor AJR.');
+  const rows=XLSX.utils.sheet_to_json(sh,{header:1,defval:''}),data={};
+  for(const row of rows.slice(4)){if(row[0])data[String(row[0]).trim()]=row[1]}
+  if(String(data.schema_version||'')!=='1')throw new Error('Versão de exportação incompatível.');
+  exportData=data;$('fileStatus').className='status ok';$('fileStatus').textContent='Gestor AJR reconhecido. DIAG_EXPORT lido com sucesso.';
+ }catch(err){$('fileStatus').className='status warn';$('fileStatus').textContent='Não foi possível ler o arquivo: '+err.message}
+ refreshButtons();
+});
+
+$('run').onclick=async()=>{
+ const answers={};document.querySelectorAll('[data-key]').forEach(x=>answers[x.dataset.key]=Number(x.value));
+ try{const b=await post('/api/diagnostic',{...auth,data:exportData,answers});render(b.result)}catch(e){alert(e.message)}
+};
+function render(r){
+ $('result').style.display='block';$('score').textContent=r.score===null?'—':r.score+'/100';$('maturity').textContent=r.maturidade;
+ $('situation').textContent=r.situacao?'Situação: '+r.situacao:'';$('confidence').textContent=r.confianca;$('notice').textContent=r.aviso||'';
+ $('alerts').innerHTML=(r.alertas_criticos||[]).length?'<h3>Alertas críticos</h3><ul>'+(r.alertas_criticos||[]).map(x=>'<li>'+x.label+'</li>').join('')+'</ul>':'';
+ const dims=$('dims');dims.innerHTML='';if(r.dimensoes)for(const [k,v] of Object.entries(r.dimensoes)){const d=document.createElement('div');d.className='dim';d.innerHTML='<span>'+k.replace('_',' ')+'</span><div class="bar"><span style="width:'+v+'%"></span></div><b>'+v+'</b>';dims.appendChild(d)}
+ for(const [id,arr] of [['p30',r.plano?.dias_30||[]],['p60',r.plano?.dias_60||[]],['p90',r.plano?.dias_90||[]]]){const ul=$(id);ul.innerHTML='';for(const x of arr){const li=document.createElement('li');li.innerHTML='<b>'+x.area+':</b> '+x.acao;ul.appendChild(li)}}
+ $('result').scrollIntoView({behavior:'smooth'});
+}
+async function showAccount(){try{const b=await post('/api/account',auth);accountData=b;$('creditBox').innerHTML='<span class="credits">'+b.human_credits+' créditos</span><br>Até '+b.orientations_available+' orientações humanas disponíveis.<br>Licença: '+b.license_id+(b.alert?'<br><b>'+b.alert.message+'</b>':'')+(b.last_diagnostic?'<br>Último diagnóstico: '+b.last_diagnostic.score+'/100 · '+b.last_diagnostic.maturity:'')}catch(e){$('creditBox').textContent=e.message}}
+$('checkCredits').onclick=showAccount;
+const worker=location.hostname.endsWith('workers.dev');$('clientBack').href=worker?'/test/cliente':'cliente.html';
+const s=saved()||purchaseSaved();if(s?.order_id&&s?.order_token){setAuth(s);validateAccess()}
+</script>
+</body></html>
