@@ -1,0 +1,8 @@
+/* PDF Fácil AJR Docs — página independente sem impacto na loja. */
+.hidden{display:none!important}
+#pdf-browser-details{min-height:1.35em}
+#pdf-browser-files{background:#fff}
+#pdf-browser-status{min-height:1.5em;font-weight:600;overflow-wrap:anywhere}
+#pdf-browser-output{text-decoration:none}
+.pdf-fields{grid-template-columns:minmax(0,2fr) minmax(0,1fr);align-items:end}
+@media(max-width:700px){.pdf-fields{grid-template-columns:1fr}}
