@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="index,follow">
+<meta name="description" content="PDF Fácil AJR Docs: una, selecione, reordene ou gire páginas PDF diretamente no navegador, sem enviar seus arquivos.">
+<title>PDF Fácil — AJR Docs</title>
+<link rel="stylesheet" href="./loja.css">
+<link rel="stylesheet" href="./pdf-facil.css">
+<script type="module" src="./pdf-browser.js"></script>
+</head>
+<body>
+<header><div class="wrap top"><a class="brand" href="https://tojunio.github.io/comercial/docs/">AJ.R · AJR Docs</a><a href="https://ajrsc-docs-private.tojunio.workers.dev/loja.html">Área do cliente e créditos</a></div></header>
+<section class="hero"><div class="wrap">
+<span class="eyebrow">AJR DOCS · PDF FÁCIL</span>
+<h1>Organize seus PDFs com praticidade.</h1>
+<p>Una arquivos, extraia páginas selecionadas, reorganize a ordem ou gire páginas. O trabalho é realizado no seu navegador — os PDFs não são enviados ao servidor da AJR Docs.</p>
+</div></section>
+<main class="wrap manual-layout">
+<section class="panel">
+<h2>Preparar o PDF</h2>
+<p class="muted">Ferramenta gratuita nesta versão, sem consumo de créditos. Até 3 arquivos de 3 MB cada, 8 MB no total e 80 páginas por operação. PDFs protegidos por senha ou corrompidos não são suportados.</p>
+<form id="pdf-browser-form">
+<label for="pdf-browser-mode">O que deseja fazer?</label>
+<select id="pdf-browser-mode" name="mode">
+<option value="join">Unir PDFs em um só arquivo</option>
+<option value="split">Selecionar e extrair páginas</option>
+<option value="reorder">Reordenar páginas</option>
+<option value="rotate">Girar páginas</option>
+</select>
+<p id="pdf-browser-details" class="muted" role="status"></p>
+<label for="pdf-browser-files">Selecionar PDFs</label>
+<input id="pdf-browser-files" type="file" accept="application/pdf,.pdf" multiple required>
+<p class="muted">Para unir: selecione de 2 a 3 PDFs na ordem desejada. Nas outras opções, selecione um PDF.</p>
+<div class="manual-grid pdf-fields">
+<div>
+<label for="pdf-browser-pages">Páginas ou intervalos</label>
+<input id="pdf-browser-pages" type="text" maxlength="500" placeholder="Todas, 1,3-5 ou 5-3">
+</div>
+<div>
+<label for="pdf-browser-rotation">Rotação</label>
+<select id="pdf-browser-rotation" disabled>
+<option value="90">90°</option><option value="180">180°</option><option value="270">270°</option>
+</select>
+</div>
+</div>
+<p class="muted">Os números das páginas começam em 1. Para girar todas, deixe o campo de páginas vazio.</p>
+<div class="actions">
+<button id="pdf-browser-button" type="submit" class="btn" disabled>Processar PDF</button>
+<a id="pdf-browser-output" class="btn btn-outline hidden" download>Baixar resultado</a>
+</div>
+<p id="pdf-browser-status" role="status" aria-live="polite"></p>
+</form>
+</section>
+<section class="panel">
+<h2>Privacidade e limites</h2>
+<p>O processamento utiliza a biblioteca pdf-lib hospedada na própria AJR Docs. Seus arquivos permanecem neste dispositivo; não há upload, consulta externa ou armazenamento no nosso banco durante essa operação.</p>
+<p class="muted">Confira o resultado antes de compartilhar ou imprimir. Arquivos PDF podem conter dados confidenciais: utilize um dispositivo confiável. A ferramenta não garante reparo de PDFs danificados, anonimização, remoção de metadados ou validade de assinaturas digitais.</p>
+<p><a href="https://tojunio.github.io/comercial/docs/privacidade.html">Privacidade AJR Docs</a> · <a href="https://tojunio.github.io/comercial/docs/termos.html">Condições do serviço</a></p>
+</section>
+</main>
+<footer class="foot">AJR Docs · Vitor Alexandre Júnior · © 2026</footer>
+</body></html>
