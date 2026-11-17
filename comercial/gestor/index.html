@@ -1,0 +1,101 @@
+<!--
+GESTOR AJR / AJR SOLUÇÕES EMPRESARIAIS SC
+Autor e criador: Vitor Alexandre Júnior
+Tecnólogo em Gestão de Recursos Humanos
+CRA-MG nº 06-005485/D
+Versão da página: MVP 0.1 — 05/11/2026
+© 2026 Vitor Alexandre Júnior. Todos os direitos reservados.
+Esta página contém apenas interface e informações comerciais. O motor do Diagnóstico 360 permanece privado.
+-->
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Gestor AJR da Alexandre J Representações: planilha de gestão, Diagnóstico Empresarial 360 e orientações para pequenos negócios.">
+<meta name="theme-color" content="#13283e">
+<title>Gestor AJR | AJR Comercial — Alexandre J Representações</title>
+<style>
+:root{--navy:#13283e;--blue:#24658c;--aqua:#03a6a0;--bg:#f2f6f9;--text:#273444;--muted:#637182;--line:#dbe4ed;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,Segoe UI,sans-serif}a{color:inherit}.container{width:min(1120px,calc(100% - 36px));margin:auto}
+header{background:#fff;border-bottom:1px solid var(--line)}.nav{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:76px;flex-wrap:wrap}.logo{display:flex;gap:12px;align-items:center;text-decoration:none;font-weight:800;color:var(--navy)}.mark{display:grid;place-items:center;width:45px;height:45px;background:var(--navy);color:white;border-radius:12px;letter-spacing:-.05em}.menu{display:flex;flex-wrap:wrap;gap:20px;font-size:.9rem}.menu a{text-decoration:none;font-weight:650}.menu a:hover{text-decoration:underline}
+.hero{padding:78px 0 64px;background:linear-gradient(120deg,#102a40,#1f5771);color:#fff}.hero-grid{display:grid;grid-template-columns:1.45fr .75fr;gap:46px;align-items:center}.eyebrow{display:inline-block;color:#a6efdf;text-transform:uppercase;letter-spacing:.12em;font-size:.79rem;font-weight:800}.hero h1{font-size:clamp(2.2rem,5.2vw,4.1rem);line-height:1.1;letter-spacing:-.05em;margin:18px 0 20px}.hero p{color:#e4f1f5;font-size:1.09rem;max-width:700px}.hero-card{background:#fff;color:var(--navy);border-radius:24px;padding:28px;box-shadow:0 20px 55px #001a2d55}.hero-card h2{font-size:1.2rem;margin:0 0 12px}.hero-card p{font-size:.97rem;color:var(--text)}.stat{font-weight:900;font-size:2.2rem;color:var(--blue);margin:6px 0;display:inline-flex;align-items:flex-start;line-height:1}.price-cents{font-size:.34em;line-height:1;margin-top:.12em;margin-left:.08em;letter-spacing:0}.tiny{font-size:.84rem!important;color:var(--muted)!important}
+.btn{display:inline-block;text-decoration:none;border-radius:11px;padding:12px 19px;font-weight:800;margin:14px 10px 0 0}.primary{background:#fff;color:var(--navy)}.outline{border:1px solid #b5e2e5;color:#fff}.dark{background:var(--navy);color:#fff}.pill{display:inline-block;padding:5px 10px;border-radius:100px;background:#ddf5f3;color:#086b68;font-size:.82rem;font-weight:800}
+section.content{padding:62px 0}.section-title{color:var(--navy);font-size:clamp(1.8rem,3.8vw,2.5rem);line-height:1.18;margin:0 0 10px}.section-intro{color:var(--muted);max-width:710px;margin:0 0 28px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:white;border:1px solid var(--line);border-radius:18px;padding:25px;box-shadow:0 12px 30px #163a520c}.card strong{display:block;font-size:1.06rem;color:var(--navy);margin-bottom:8px}.card p{margin:0;color:var(--muted);font-size:.96rem}
+.product{display:grid;grid-template-columns:1.35fr .65fr;gap:22px;align-items:start}.product .card{padding:32px}.features{display:grid;grid-template-columns:repeat(2,1fr);gap:8px 18px;padding:0;list-style:none}.features li{padding:11px 0;border-bottom:1px solid #e9edf1}.features li:before{content:"✓";color:#00897e;font-weight:900;margin-right:9px}
+.price{font-size:2.7rem;line-height:1;font-weight:900;color:var(--navy);margin:16px 0 12px;display:inline-flex;align-items:flex-start}.note{background:#eaf3f6;border:1px solid #d2e7ec;border-radius:14px;padding:15px;color:#2e5665}.privacy-note{background:#f7fbfc;border:1px solid #cfe3e8;border-left:5px solid var(--aqua);border-radius:14px;padding:20px 22px;margin-top:22px}.privacy-note h3{margin:0 0 8px;color:var(--navy)}.privacy-note p{margin:6px 0;color:#405767}.privacy-note a{color:var(--blue);font-weight:800}.steps{counter-reset:step}.steps .card:before{counter-increment:step;content:"0" counter(step);display:block;color:var(--blue);font-size:1.2rem;font-weight:900;margin-bottom:13px}
+footer{background:#10283c;color:#e4edf3;padding:34px 0}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.foot a{color:#c4e9ee}.legal{font-size:.83rem;color:#96b0c2}
+@media(max-width:820px){.hero-grid,.product{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}}@media(max-width:580px){.grid,.features{grid-template-columns:1fr}.hero{padding:48px 0}.nav{padding:12px 0}.menu{gap:12px}}
+.product-switch{display:flex;gap:10px;flex-wrap:wrap;padding:15px 0}.product-switch a{display:inline-flex;padding:10px 17px;border-radius:10px;border:1px solid #c8dbe7;background:#f2f7fa;color:#153550;text-decoration:none;font-weight:800}.product-switch a.selected{background:#163f63;color:#fff;border-color:#163f63}.docs-strip{background:#eef6fb;border-top:1px solid #d2e4ef;border-bottom:1px solid #d2e4ef;padding:40px 0}.docs-strip-inner{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}.docs-strip h2{font-size:clamp(1.55rem,3vw,2.1rem);color:var(--navy);margin:6px 0 10px}.docs-strip p{color:#405f70;max-width:700px;margin:0}.docs-strip .btn{margin:0;white-space:nowrap}
+</style>
+</head>
+<body>
+<header><div class="container nav">
+<a class="logo" href="../"><span class="mark">AJR</span><span>Gestor AJR <small>· AJR Comercial</small></span></a>
+<nav class="menu" aria-label="Navegação"><a href="../">AJR Comercial</a><a href="../docs/">AJR Docs</a><a href="../fluxo-qualidade/">Fluxo &amp; Qualidade</a><a href="#produto">Produto</a><a href="#diagnostico">Diagnóstico 360</a><a href="#creditos">Créditos AJR</a><a href="#funcionamento">Como funciona</a></nav>
+</div></header>
+<div class="container product-switch" role="navigation" aria-label="Produtos AJR Comercial"><a href="../">Todos os produtos</a><a class="selected" href="./" aria-current="page">Gestor AJR</a><a href="../docs/">AJR Docs</a><a href="../fluxo-qualidade/">Fluxo &amp; Qualidade</a></div>
+<main>
+<section class="hero"><div class="container hero-grid">
+<div><span class="eyebrow">Gestão prática, sem complicação</span><h1>Tenha clareza sobre o dinheiro e os números do seu negócio.</h1>
+<p>Ferramentas acessíveis para organizar clientes, fornecedores, compras, vendas e finanças. Tudo pensado para quem empreende e precisa decidir melhor, sem sistemas caros ou complexos.</p>
+<a class="btn primary" href="../comprar.html">Ver oferta do Gestor AJR</a><a class="btn outline" href="#funcionamento">Como funciona</a></div>
+<aside class="hero-card"><span class="pill">MVP 0.1</span><h2>Gestor AJR + Diagnóstico Empresarial 360</h2><p>O Excel organiza os dados reais da empresa; o Diagnóstico 360 analisa a base consolidada e gera prioridades e um plano de ação 30/60/90 dias.</p><div class="stat" aria-label="R$ 199,00">R$ 199<span class="price-cents" aria-hidden="true">,00</span></div><p class="tiny">Oferta inicial: ferramenta + Diagnóstico 360 + 200 Créditos AJR. A liberação ocorre após a confirmação do pagamento.</p><a class="btn dark" href="../comprar.html">Conhecer antes de comprar</a></aside>
+</div></section>
+<section class="content" style="padding-top:30px;padding-bottom:10px"><div class="container">
+<div class="privacy-note"><h3>Privacidade e segurança dos seus dados</h3>
+<p><strong>Seus dados continuam sob seu controle.</strong> O Gestor AJR solicita somente as informações necessárias para pedido, licença, suporte e funcionamento dos serviços.</p>
+<p>Não solicitamos senha bancária, dados de cartão, credenciais de internet banking ou localização precisa. O Pix é realizado fora do sistema e a AJR não recebe acesso à sua conta bancária.</p>
+<p>O arquivo Excel completo permanece com você. No Diagnóstico Empresarial 360, são enviados apenas os dados consolidados necessários à análise. Os dados pessoais necessários à operação são protegidos no backend por criptografia e acesso restrito.</p>
+<p><a href="../privacidade.html">Leia como tratamos e protegemos seus dados</a>.</p></div>
+</div></section>
+<section class="content" id="solucao"><div class="container"><h2 class="section-title">Organize o negócio. Entenda o resultado.</h2><p class="section-intro">O objetivo não é oferecer mais uma planilha solta, e sim reunir as informações fundamentais para acompanhar a rotina de uma micro ou pequena empresa.</p>
+<div class="grid">
+<article class="card"><strong>Entradas e saídas</strong><p>Acompanhe recebimentos, pagamentos, saldos e compromissos futuros.</p></article>
+<article class="card"><strong>Clientes e fornecedores</strong><p>Cadastros organizados, contas a receber, contas a pagar e comparação de compras.</p></article>
+<article class="card"><strong>Decisões mais seguras</strong><p>Indicadores de custos, preços, fluxo de caixa, resultado e capital de giro.</p></article>
+</div></div></section>
+<section class="content" id="produto" style="background:#e9f0f5"><div class="container"><h2 class="section-title">Conheça o Gestor AJR</h2><p class="section-intro">Ferramenta integrada em Excel, desenvolvida para funcionar localmente no computador do cliente.</p>
+<div class="product">
+<article class="card"><h3>Módulos previstos no arquivo</h3>
+<ul class="features">
+<li>Orçamentos comerciais</li><li>Cadastro de clientes</li><li>Cadastro de fornecedores</li><li>Contas a pagar e receber</li>
+<li>Fluxo de caixa previsto e realizado</li><li>Controle de compras e estoque</li><li>Formação de preços</li><li>Indicadores e resultado simplificado</li>
+<li>Capital de giro e sua necessidade</li><li>Painel de acompanhamento</li>
+</ul><p class="tiny">O Gestor AJR MVP 0.1 foi validado em cenários de teste e integra-se ao Diagnóstico Empresarial 360.</p></article>
+<aside class="card"><span class="pill">Oferta inicial</span><div class="price" aria-label="R$ 199,00">R$ 199<span class="price-cents" aria-hidden="true">,00</span></div>
+<p>Pacote inicial do Gestor AJR — MVP 0.1.</p>
+<div class="note"><strong>Inclui no lançamento</strong><br>Gestor AJR em Excel, acesso ao Diagnóstico Empresarial 360, Plano de Ação Automático e <strong>200 Créditos AJR</strong>, equivalentes a até 10 orientações humanas de até 3 perguntas relacionadas cada.</div>
+<p class="tiny">Os créditos pertencem à conta empresarial vinculada ao CNPJ e ao e-mail principal. A compra, a liberação manual e a entrega privada do arquivo são realizadas pelo fluxo comercial do Gestor AJR.</p>
+</aside></div></div></section>
+
+<section class="content" id="diagnostico"><div class="container"><h2 class="section-title">Diagnóstico Empresarial 360</h2>
+<p class="section-intro">O diagnóstico não depende apenas da percepção do empresário. Ele utiliza dados consolidados pelo Gestor AJR e complementa a análise com perguntas gerenciais que o Excel não consegue responder sozinho.</p>
+<div class="grid">
+<article class="card"><strong>1. Dados reais do Gestor AJR</strong><p>Vendas, compras, contas a receber e pagar, fluxo de caixa, cadastros, estoque e capital de giro alimentam a análise.</p></article>
+<article class="card"><strong>2. Perguntas complementares</strong><p>Planejamento, metas, responsabilidades, processos, treinamento e rotinas gerenciais completam o quadro.</p></article>
+<article class="card"><strong>3. Plano 30/60/90 dias</strong><p>O sistema gera score, nível de maturidade, prioridades e ações ligadas às áreas e abas do Gestor AJR.</p></article>
+</div>
+<div class="note" style="margin-top:18px"><strong>Proteção do método</strong><br>Os pesos, regras, critérios e o motor do Diagnóstico 360 ficam em ambiente privado. A página pública recebe somente o resultado necessário para a experiência do cliente.</div><a class="btn dark" href="../diagnostico.html">Ver interface do Diagnóstico 360</a>
+</div></section>
+
+<section class="content" id="creditos" style="background:#e9f0f5"><div class="container"><h2 class="section-title">Créditos AJR para orientação humana</h2>
+<p class="section-intro">Os créditos não vencem por uma nova recarga e o saldo restante é somado ao novo pacote. Uma orientação humana custa 20 Créditos AJR e pode conter até 3 perguntas relacionadas ao mesmo assunto.</p>
+<div class="grid">
+<article class="card"><strong>R$ 10</strong><p><b>20 Créditos AJR</b><br>Até 1 orientação humana.</p></article>
+<article class="card"><strong>R$ 50</strong><p><b>100 Créditos AJR</b><br>Até 5 orientações humanas.</p></article>
+<article class="card"><strong>R$ 100</strong><p><b>200 Créditos AJR</b><br>Até 10 orientações humanas.</p></article>
+<article class="card"><strong>R$ 200</strong><p><b>400 Créditos AJR</b><br>Até 20 orientações humanas.</p></article>
+</div>
+<div class="note" style="margin-top:18px"><strong>Alertas automáticos</strong><br>O sistema avisa quando o saldo cair para o equivalente a 4, 2 e 1 orientações restantes e novamente quando os créditos acabarem. Uma recarga feita antes do fim preserva e soma o saldo remanescente.</div>
+</div></section>
+<section class="content" id="funcionamento"><div class="container"><h2 class="section-title">Um processo simples, do início ao acompanhamento</h2><p class="section-intro">O cliente conhece a solução, cria o pedido, realiza o pagamento e acompanha a liberação da licença em um fluxo simples.</p>
+<div class="grid steps"><article class="card"><strong>Compra e licença</strong><p>A compra cria uma conta empresarial vinculada ao CNPJ e ao e-mail principal e libera o Gestor AJR com os créditos incluídos.</p></article><article class="card"><strong>Alimente o Gestor AJR</strong><p>Registre os dados reais da operação no Excel. A aba de exportação consolida somente o necessário para o diagnóstico.</p></article><article class="card"><strong>Execute o Diagnóstico 360</strong><p>Envie a base consolidada, responda às perguntas complementares e receba score, maturidade e plano de ação 30/60/90 dias.</p></article><article class="card"><strong>Use créditos quando precisar</strong><p>As orientações humanas ficam reservadas para dúvidas específicas. Recargas futuras somam créditos ao saldo existente.</p></article></div></div></section>
+<section class="content" id="contato" style="background:#fff"><div class="container"><h2 class="section-title">Compra e acesso em um fluxo único</h2><p class="section-intro">O cliente conhece a solução, cria o pedido, realiza o Pix, informa o pagamento e acompanha a liberação. Após a confirmação, acessa sua área protegida para baixar o Gestor AJR e utilizar o Diagnóstico 360.</p>
+<a class="btn dark" href="../comprar.html">Comprar o Gestor AJR</a> <a class="btn dark" href="../instrucoes.html">Como comprar e usar</a>
+
+</div></section>
+</main>
+<footer><div class="container foot"><div><strong>Alexandre J Representações · Gestor AJR</strong><div class="legal">Gestor AJR MVP 0.1 • Fornecedor: 70.028.073 VITOR ALEXANDRE JUNIOR • CNPJ 70.028.073/0001-77 • Rua José de Souza Barros, 172, Sala 05, Bairro São Francisco, Rio Paranaíba – MG, CEP 38.810-000 • contato: tojunio@gmail.com</div></div>
+<div><a href="../termos.html">Termos de Uso</a> · <a href="../privacidade.html">Privacidade/LGPD</a> · <a href="../instrucoes.html">Como comprar e usar</a></div></div></footer>
+</body></html>
