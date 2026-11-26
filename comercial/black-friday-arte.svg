@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 390" role="img" aria-labelledby="ajrTitle ajrDesc">
+<title id="ajrTitle">Black Friday AJR — noite de ofertas</title>
+<desc id="ajrDesc">Abóbora laranja esculpida, dois gatos pretos e velas pretas com chamas douradas.</desc>
+<defs>
+<linearGradient id="pumpkin" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffbd60"/><stop offset=".55" stop-color="#df7d28"/><stop offset="1" stop-color="#943c18"/></linearGradient>
+<linearGradient id="side" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f3a348"/><stop offset="1" stop-color="#ad4c1c"/></linearGradient>
+<linearGradient id="flame" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fffde0"/><stop offset=".52" stop-color="#ffd467"/><stop offset="1" stop-color="#f29322"/></linearGradient>
+<linearGradient id="candle" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#11121b"/><stop offset=".45" stop-color="#2e2c35"/><stop offset="1" stop-color="#080b14"/></linearGradient>
+<radialGradient id="moon"><stop offset=".4" stop-color="#f6d68c" stop-opacity=".58"/><stop offset="1" stop-color="#d68341" stop-opacity="0"/></radialGradient>
+<filter id="flameGlow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="7"/></filter>
+</defs>
+<circle cx="568" cy="131" r="125" fill="url(#moon)"/>
+<circle cx="565" cy="127" r="62" fill="#daa15a" opacity=".17"/>
+<g fill="#f4c776" opacity=".85"><path d="M34 110l5-12 5 12 12 4-12 4-5 12-5-12-12-4zM670 88l5-11 4 11 11 4-11 4-4 11-5-11-11-4zM606 51l3-8 3 8 8 3-8 3-3 8-3-8-8-3zM185 69l4-10 3 10 10 3-10 4-3 9-4-9-9-4z"/><circle cx="260" cy="49" r="2.4"/><circle cx="368" cy="27" r="2.2"/><circle cx="702" cy="182" r="2.8"/><circle cx="102" cy="46" r="2.3"/></g>
+<ellipse cx="385" cy="348" rx="320" ry="29" fill="#030911" opacity=".73"/>
+<!-- Velas pretas e chamas douradas, à esquerda -->
+<g transform="translate(32 0)">
+<ellipse cx="76" cy="299" rx="54" ry="13" fill="#eab65a" opacity=".11"/>
+<rect x="48" y="147" width="48" height="151" rx="7" fill="url(#candle)" stroke="#916b46" stroke-width="2"/>
+<path d="M54 154q8 9 13 2t17 0q8 6 9-2" fill="none" stroke="#e6c082" stroke-width="3" opacity=".65"/>
+<path d="M60 180v94" stroke="#dca65e" stroke-width="2" opacity=".3"/>
+<path d="M71 145v-14" stroke="#a27c58" stroke-width="3" stroke-linecap="round"/>
+<path d="M72 134C48 116 52 92 71 65c4 17 23 25 21 43-1 13-10 23-20 26z" fill="#ffb43a" opacity=".58" filter="url(#flameGlow)"/>
+<path d="M72 134C48 116 52 92 71 65c4 17 23 25 21 43-1 13-10 23-20 26z" fill="url(#flame)"/>
+<path d="M72 129c-8-9-7-17 1-30 4 10 8 18-1 30z" fill="#fff7d5"/>
+<rect x="124" y="194" width="47" height="113" rx="7" fill="url(#candle)" stroke="#916b46" stroke-width="2"/>
+<path d="M129 203q11 5 17 0t19 0" fill="none" stroke="#d9ac65" stroke-width="3" opacity=".65"/>
+<path d="M147 191v-12" stroke="#9e7c55" stroke-width="3" stroke-linecap="round"/>
+<path d="M148 181c-20-15-18-35-1-60 6 16 21 23 19 39-1 10-9 17-18 21z" fill="#ffb43a" opacity=".65" filter="url(#flameGlow)"/>
+<path d="M148 181c-20-15-18-35-1-60 6 16 21 23 19 39-1 10-9 17-18 21z" fill="url(#flame)"/>
+<path d="M148 175c-7-7-6-15 1-25 4 9 6 17-1 25z" fill="#fff6ca"/>
+</g>
+<!-- Abóbora com iluminação dourada -->
+<g transform="translate(208 100)">
+<ellipse cx="188" cy="213" rx="160" ry="124" fill="#913c1a"/>
+<ellipse cx="83" cy="206" rx="73" ry="121" fill="url(#side)"/>
+<ellipse cx="297" cy="206" rx="74" ry="121" fill="url(#side)"/>
+<ellipse cx="132" cy="205" rx="79" ry="130" fill="url(#pumpkin)"/>
+<ellipse cx="247" cy="205" rx="81" ry="130" fill="url(#pumpkin)"/>
+<ellipse cx="189" cy="207" rx="77" ry="136" fill="url(#pumpkin)"/>
+<path d="M186 90c-20-44 15-49 8-72 26 9 36 34 14 72z" fill="#3a442a" stroke="#6e692a" stroke-width="3"/>
+<path d="M194 52c-18-13-46-18-59-2" fill="none" stroke="#6b7e42" stroke-width="8" stroke-linecap="round"/>
+<path d="M94 181l55-34 23 46-75-4zM209 193l29-46 57 34-75 11z" fill="#1b1014" stroke="#ffb451" stroke-width="3"/>
+<path d="M192 196l-19 31h38z" fill="#231117"/>
+<path d="M100 251q91 90 186-4l-19 9-18-10-16 22-20-9-18 24-23-11-24 11-15-21-18 7z" fill="#230e14" stroke="#ffb451" stroke-width="4" stroke-linejoin="round"/>
+<path d="M102 141q32-29 65-12M223 130q39-14 67 11" fill="none" stroke="#ffc37a" stroke-width="6" opacity=".26" stroke-linecap="round"/>
+</g>
+<!-- Gato preto maior, junto à lua -->
+<g transform="translate(505 82)">
+<path d="M102 220c75 18 109-42 85-75-14-20-37-3-26 17" fill="none" stroke="#080b14" stroke-width="24" stroke-linecap="round"/>
+<ellipse cx="102" cy="214" rx="60" ry="93" fill="#080b14"/>
+<ellipse cx="73" cy="291" rx="34" ry="16" fill="#080b14"/><ellipse cx="128" cy="291" rx="34" ry="16" fill="#080b14"/>
+<path d="M54 67l6-56 42 36 37-36 11 57q13 21 9 40c-6 40-30 61-61 61-44 0-68-28-69-64-1-14 8-30 25-38z" fill="#080b14"/>
+<ellipse cx="74" cy="104" rx="11" ry="7" fill="#f3c468"/><ellipse cx="125" cy="104" rx="11" ry="7" fill="#f3c468"/>
+<path d="M76 100v8M123 100v8" stroke="#16151d" stroke-width="3" stroke-linecap="round"/>
+<path d="M94 123h10l-5 7z" fill="#b77b5c"/>
+<path d="M99 130q-8 7-17 0M99 130q8 7 17 0" stroke="#af8370" stroke-width="2" fill="none"/>
+<path d="M50 130L12 119M51 140L10 143M147 129l38-10M146 140l43 3" stroke="#c6b9a5" stroke-width="1.8" opacity=".64"/>
+</g>
+<!-- Segundo gato preto menor, próximo à abóbora -->
+<g transform="translate(182 267) scale(.54)">
+<path d="M40 84c-72-18-72 51-22 41" fill="none" stroke="#090c14" stroke-width="18" stroke-linecap="round"/>
+<ellipse cx="91" cy="106" rx="48" ry="66" fill="#090c14"/>
+<path d="M50 45L44-5l42 29 38-29 5 51q15 43-39 55-50-11-40-56z" fill="#090c14"/>
+<ellipse cx="70" cy="56" rx="9" ry="6" fill="#f9c66c"/><ellipse cx="108" cy="56" rx="9" ry="6" fill="#f9c66c"/>
+<ellipse cx="72" cy="165" rx="34" ry="13" fill="#090c14"/><ellipse cx="110" cy="165" rx="34" ry="13" fill="#090c14"/>
+</g>
+</svg>
