@@ -1,0 +1,26 @@
+/* AJR Comercial — tema Black Friday 23–27/11/2026, somente quando JS ativa .ajr-bf-season */
+html.ajr-bf-season body>header{background:#0f1725!important;border-color:#695038!important}
+html.ajr-bf-season body>header a,html.ajr-bf-season body>header .logo,html.ajr-bf-season body>header .brand{color:#f8e8cb!important}
+html.ajr-bf-season body>header small{color:#e3c88f!important}
+html.ajr-bf-season .blackfriday{background:linear-gradient(95deg,#111721,#321d28 56%,#603922)!important;border-bottom-color:#f0bd60!important}
+html.ajr-bf-season .hero{background:radial-gradient(circle at 92% 12%,#7d412a45,transparent 42%),linear-gradient(130deg,#101b2b,#1d3046 60%,#231b26)!important}
+html.ajr-bf-season .card,html.ajr-bf-season .plan,html.ajr-bf-season .kit{box-shadow:0 14px 32px #95572917}
+html.ajr-bf-season footer{background:#0d1725!important}
+.ajr-bf-stage{isolation:isolate;overflow:hidden;position:relative;color:#ffedce;background:radial-gradient(circle at 80% 43%,#6c392e72,transparent 32%),radial-gradient(circle at 20% 16%,#b978291f,transparent 45%),linear-gradient(113deg,#101522,#111725 58%,#241b28);border-bottom:1px solid #815937}
+.ajr-bf-stage:before{content:"";position:absolute;inset:0;opacity:.32;pointer-events:none;background-image:radial-gradient(#f2b75b 1px,transparent 1.6px);background-size:62px 62px;background-position:18px 14px}
+.ajr-bf-inner{width:min(1150px,calc(100% - 36px));margin:auto;min-height:350px;padding:35px 0;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:12px;align-items:center;position:relative;z-index:1}
+.ajr-bf-copy{padding:7px 0 16px;max-width:580px}
+.ajr-bf-kicker{display:inline-flex;gap:9px;align-items:center;border:1px solid #d5a55c88;border-radius:99px;background:#e9aa4930;padding:7px 13px;color:#f8dba6;font-size:.75rem;font-weight:900;letter-spacing:.09em;text-transform:uppercase}
+.ajr-bf-copy h2{font-size:clamp(2rem,4.6vw,3.9rem);line-height:1.08;letter-spacing:-.047em;margin:17px 0 14px;color:#fff4de;font-weight:900}
+.ajr-bf-copy h2 em{font-style:normal;color:#f7bc5e;text-shadow:0 3px 22px #ffa53150}
+.ajr-bf-copy p{font-size:clamp(.94rem,1.5vw,1.09rem);line-height:1.57;max-width:540px;color:#e9d6bd;margin:0 0 20px}
+.ajr-bf-copy p strong{color:#ffd481}
+.ajr-bf-offer{display:flex;align-items:center;flex-wrap:wrap;gap:10px 15px}
+.ajr-bf-discount{display:inline-flex;align-items:center;justify-content:center;border:1px solid #f6d89f;background:linear-gradient(120deg,#ffcf73,#e5a643);color:#291b19;border-radius:12px;padding:10px 18px;font-weight:900;font-size:1.14rem;letter-spacing:.02em;box-shadow:0 7px 30px #e3a75643}
+.ajr-bf-dates{font-weight:850;color:#f7ddaa;letter-spacing:.04em;font-size:.85rem}
+.ajr-bf-link{display:inline-flex;margin-top:18px;color:#fff3d7;text-decoration:underline;text-underline-offset:4px;font-size:.9rem;font-weight:800}
+.ajr-bf-link:hover,.ajr-bf-link:focus-visible{color:#ffcf7c}
+.ajr-bf-art{width:100%;min-width:0;max-width:540px;justify-self:end;filter:drop-shadow(0 22px 25px #05081390)}
+.ajr-bf-art img{width:100%;height:auto;display:block}
+@media(max-width:800px){.ajr-bf-inner{grid-template-columns:1fr;gap:0;padding:27px 0 8px}.ajr-bf-copy{padding:3px 0 6px}.ajr-bf-copy h2{max-width:580px}.ajr-bf-art{width:min(100%,460px);justify-self:center;margin:-10px auto -4px}}
+@media(max-width:480px){.ajr-bf-inner{width:calc(100% - 30px);padding-top:22px}.ajr-bf-kicker{font-size:.64rem;letter-spacing:.06em}.ajr-bf-copy h2{font-size:clamp(1.9rem,8.9vw,2.65rem);margin:14px 0 12px}.ajr-bf-copy p{font-size:.94rem;margin-bottom:14px}.ajr-bf-discount{padding:8px 14px;font-size:1rem}.ajr-bf-dates{font-size:.75rem}.ajr-bf-link{margin-top:14px}.ajr-bf-art{max-width:390px}}
